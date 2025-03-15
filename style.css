@@ -1,0 +1,445 @@
+/* Pink Animated Background */
+body {
+    font-family: 'Lucida Calligraphy', cursive;
+    text-align: center;
+    background: linear-gradient(45deg, #ff99cc, #ff6699, #ff3366, #ff6699);
+    background-size: 400% 400%;
+    animation: backgroundMove 10s infinite ease-in-out;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Background Animation */
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🎥 Video Background */
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100vh;
+    object-fit: contain;
+    z-index: -2;
+}
+
+button {
+    background-color: #ff66b2; /* Pink */
+    color: white; /* Text color */
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #ff3385; /* Darker pink */
+}
+
+#message {
+    font-size: 20px; /* Keep text large */
+    font-weight: bold; /* Make text bold */
+    color: black;
+    text-align: center;
+    background: rgba(251, 156, 202, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    display: none;
+}
+
+/* If you want extra bold text */
+#message h, #message p {
+    font-weight: 800; /* Extra bold */
+}
+
+#message h1 {
+    position: absolute; /* Allows free positioning */
+    top: 10px; /* Moves it to the top */
+    left: 50%; /* Centers it */
+    transform: translateX(-50%); /* Keeps it aligned in the center */
+    font-size: 36px; /* Make it stand out */
+    font-weight: bold;
+    color: white;
+}
+
+#left-message {
+    position: absolute;
+    top: 10%;  /* Adjust as needed */
+    left: 5%;  /* Keep it to the left */
+    width: 300px;  /* Adjust width to fit exactly two lines */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    font-family: "Lucida Calligraphy", cursive;
+    line-height: 1.4;  /* Proper spacing */
+    word-wrap: break-word; /* Ensures proper line breaks */
+
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Apply Bounce Animation ONLY to Left Message */
+.left-message {
+    display: inline-block;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+
+#right-message {
+    position: absolute;
+    bottom: 10%; /* Moves it slightly upwards */
+    right: 5%; /* Positions it towards the right */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    font-family: "Lucida Calligraphy", cursive;
+    line-height: 1.4;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Apply Bounce Animation ONLY to Right Message */
+.right-message {
+    display: inline-block;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+
+
+
+
+/* Confetti */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Floating Balloons */
+#balloon-container {
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: radial-gradient(circle, #ff3366, #ff6699);
+    border-radius: 50%;
+    animation: floatUp 6s linear infinite;
+}
+
+/* Balloon Floating Animation */
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* Floating Framed Photos */
+#photo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.photo-frame {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    animation: float 5s infinite alternate ease-in-out;
+    z-index: -1; /* Moves photos behind all text elements */
+}
+
+/* Floating Photo Animation */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(10px) rotate(3deg); }
+}
+
+/* PINK BACKGROUND */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ff66b2; /* Bright pink */
+    overflow: hidden;
+    z-index: -2;
+}
+
+/* CONTAINER FOR BIRTHDAY DOODLES */
+#birthday-doodles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* BALLOONS */
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: radial-gradient(circle, #ff3366, #ff6699);
+    border-radius: 50%;
+    animation: floatUp 6s linear infinite;
+}
+
+/* STRING FOR BALLOONS */
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: white;
+    left: 50%;
+    top: 100%;
+}
+
+/* CONFETTI */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: yellow;
+    transform: rotate(45deg);
+    animation: confettiFall 3s linear infinite;
+}
+
+/* CAKE (Simple) */
+.cake {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background: brown;
+    border-radius: 5px;
+    animation: floatUp 8s linear infinite;
+}
+
+/* CANDLE ON CAKE */
+.cake::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 10px;
+    background: red;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* FLAME */
+.cake::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: orange;
+    border-radius: 50%;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* GIFT BOX */
+.gift {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    border: 3px solid white;
+    animation: floatUp 7s linear infinite;
+}
+
+/* GIFT RIBBON */
+.gift::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: white;
+    top: 50%;
+    left: 0;
+}
+
+/* FLOATING & FALLING EFFECTS */
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(0px) rotate(45deg); }
+    100% { transform: translateY(100vh) rotate(90deg); }
+}
+
+/* Positioning the message over the MP4 */
+#bday-arrow {
+    position: absolute;
+    top: 10%;  /* Adjust to place it above the MP4 */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 6px black;
+    animation: bounce 1.5s infinite;
+}
+
+/* Arrow with pointy part at the bottom */
+.arrow {
+    width: 0;
+    height: 0;
+    margin: 10px auto;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid white; /* Now the pointy part is at the bottom */
+    animation: bounce 1.5s infinite;
+}
+
+#photo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1; /* Keep them behind the text */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10vh 5vw; /* Push photos away from edges */
+}
+
+.photo-frame {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    animation: float 5s infinite alternate ease-in-out;
+}
+
+/* Adjust positions to avoid text */
+.photo-frame:nth-child(odd) {
+    top: 10%;
+}
+
+.photo-frame:nth-child(even) {
+    bottom: 10%;
+}
+
+/* Pink background with animated aurora-like gradient */
+body {
+    font-family: 'Lucida Calligraphy', cursive;
+    text-align: center;
+    background: linear-gradient(-45deg, #ffccff, #ff99cc, #ff6699, #ff3366);
+    background-size: 400% 400%;
+    animation: auroraMove 8s infinite ease-in-out; /* Moving aurora effect */
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Aurora Effect Animation */
+@keyframes auroraMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Doodles and Swirly Patterns */
+.aurora-doodles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Floating Doodle Shapes */
+.doodle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.5;
+    animation: doodleFloat 6s infinite ease-in-out alternate;
+}
+
+/* Different Doodle Styles */
+.doodle:nth-child(1) { top: 10%; left: 15%; background: radial-gradient(circle, #ffffff88, #ff99cc00); }
+.doodle:nth-child(2) { top: 50%; left: 80%; background: radial-gradient(circle, #ffffff88, #ff669900); }
+.doodle:nth-child(3) { top: 70%; left: 40%; background: radial-gradient(circle, #ffffff88, #ffccff00); }
+
+/* Doodle Floating Animation */
+@keyframes doodleFloat {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(15px) scale(1.1); }
+}
+
+
